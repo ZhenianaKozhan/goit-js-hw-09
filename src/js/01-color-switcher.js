@@ -7,18 +7,18 @@ refs.startBtn.addEventListener('click', onStartBtnClick)
 refs.stopBtn.addEventListener('click', onStopBtnClick)
 let timerId = null;
 
-refs.stopBtn.setAttribute('disabled', 0);
+refs.stopBtn.disabled = true;
 
 function onStartBtnClick() {
     timerId = setInterval(onChangeBodyBgrClr, 1000);
-    refs.startBtn.setAttribute('disabled', 0);
-    refs.stopBtn.removeAttribute('disabled');
+    refs.startBtn.disabled = true;
+    refs.stopBtn.disabled = false;
 }
 
 function onStopBtnClick() {
     clearInterval(timerId);
-    refs.startBtn.removeAttribute('disabled');
-    refs.stopBtn.setAttribute('disabled', 0);
+    refs.startBtn.disabled = false;
+    refs.stopBtn.disabled = true;
 }
 
 function onChangeBodyBgrClr() {
